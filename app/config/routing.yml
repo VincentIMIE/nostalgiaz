@@ -1,3 +1,6 @@
-app:
-    resource: "@AppBundle/Controller/"
+nostalgiaz:
+    resource: "@NostalgiazBundle/Controller/"
     type:     annotation
+    prefix:   /
+
+
