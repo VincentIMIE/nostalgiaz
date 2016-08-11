@@ -13,7 +13,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
     	$em = $this->getDoctrine()->getManager();
-        $users = $em->getRepository('NostalgiazBundle:Utilisateur')->findAll();
+        $users = $em->getRepository('NostalgiazBundle:Utilisateur')->getUsers();
 
         return $this->render('NostalgiazBundle:Default:index.html.twig', array('users' => $users));
     }
