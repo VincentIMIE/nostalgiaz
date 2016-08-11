@@ -12,6 +12,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('NostalgiazBundle:Default:index.html.twig');
+    	$em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('NostalgiazBundle:Utilisateur')->findAll();
+
+        return $this->render('NostalgiazBundle:Default:index.html.twig', array('users' => $users));
     }
+
 }
