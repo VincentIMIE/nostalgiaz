@@ -12,11 +12,16 @@ class UtilisateurRepository extends \Doctrine\ORM\EntityRepository
 {
 	public function getUsers()
 	{
-		$query =$this->_em->createQuery('
-			SELECT u
-			FROM NostalgiazBundle:Utilisateur u' );
 
-		return $query->getResult();
+		$queryBuilder = $this->_em->createQueryBuilder()
+      	->select('a')
+      	->from($this->_entityName, 'a');
+
+      	$query = $queryBuilder->getQuery();
+      	$results = $query->getResult();
+      	
+      	return $results;
+
 	}
 
 
